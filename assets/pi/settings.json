@@ -1,0 +1,14 @@
+{
+  "theme": "dark/dark",
+  "extensions": [
+    "-builtin:mcp"
+  ],
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6-sol",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-add-dir",
+    "git:github.com/DietrichGebert/ponytail"
+  ],
+  "enableInstallTelemetry": false
+}
