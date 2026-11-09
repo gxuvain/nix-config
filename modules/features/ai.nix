@@ -4,7 +4,7 @@
       "pi-coding-agent"
       "anomalyco/tap/opencode-v2"
     ];
-    homebrew.casks = [ "chatgpt" "t3-code" ];
+    homebrew.casks = [ "chatgpt" "opencode-desktop" "t3-code" ];
   };
 
   flake.modules.homeManager.ai = { config, ... }:
@@ -15,7 +15,5 @@
     {
       home.file.".pi/agent/settings.json".source =
         mkOutOfStoreSymlink "${assets}/pi/settings.json";
-      home.file.".pi/agent/extensions/whimsical.ts".source =
-        mkOutOfStoreSymlink "${assets}/pi/extensions/whimsical.ts";
     };
 }

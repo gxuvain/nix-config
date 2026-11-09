@@ -3,7 +3,6 @@
   flake.modules.darwin.coding = {
     homebrew.brews = [
       "cloudflare-wrangler"
-      "exercism"
       "qemu"
     ];
     homebrew.casks = [
@@ -62,8 +61,6 @@
         pnpm = "latest";
         rust = "latest";
         uv = "latest";
-        gleam = "latest";
-        erlang = "latest";
       };
     };
   };
