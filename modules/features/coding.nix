@@ -1,14 +1,7 @@
 { inputs, ... }:
 {
   flake.modules.darwin.coding = {
-    homebrew.brews = [
-      "cloudflare-wrangler"
-      "qemu"
-    ];
-    homebrew.casks = [
-      "docker-desktop"
-      "utm"
-    ];
+    homebrew.casks = [ "docker-desktop" ];
   };
 
   flake.modules.homeManager.coding = { config, lib, pkgs, ... }: {
@@ -18,7 +11,9 @@
       helix
       just
       lazygit
+      qemu
       tree-sitter
+      wrangler
     ] ++ [
       inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
