@@ -34,14 +34,21 @@ in
         ];
       };
 
-    boot.loader.systemd-boot.enable = true;
+    # Limine, with a dual boot entry for Windows.
     boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.limine = {
+      enable = true;
+      efiSupport = true;
+      maxGenerations = 10;
 
-    # Dual boot: Windows lives on another disk (sdb) with its own ESP, so
-    # systemd-boot can't detect it. The EDK2 shell entry is used to find its
-    # device handle (`map -c`), then Windows gets its own menu entry.
-    boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
-    # boot.loader.systemd-boot.windows."11".efiDeviceHandle = "HD?b"; # TODO: set from `map -c`
+      # Windows lives on another disk (sdb) with its own ESP. Chainload its
+      # bootloader via the partition GUID of that ESP (see `lsblk -o NAME,PARTUUID`).
+      extraEntries = ''
+        /Windows
+            protocol: efi
+            path: guid(ccaf4cb7-e117-45e5-a8e7-355af29c1058):/EFI/Microsoft/Boot/bootmgfw.efi
+      '';
+    };
 
     # Windows keeps the hardware clock in local time; match it to avoid clock drift on switch.
     time.hardwareClockInLocalTime = true;
