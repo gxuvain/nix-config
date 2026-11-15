@@ -10,6 +10,7 @@ in
       nixos.ai
       nixos.coding
       nixos.communication
+      nixos.gnome-apps
       nixos.music
       nixos.security
       nixos.nix
