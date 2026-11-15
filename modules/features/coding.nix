@@ -10,6 +10,11 @@ in
   flake.modules.nixos.coding = {
     virtualisation.docker.enable = true;
     users.users.${username}.extraGroups = [ "docker" ];
+
+    # Run generic (non-Nix) Linux binaries, e.g. the prebuilt tools mise downloads
+    # (node, bun, uv, python, rustup). Provides /lib64/ld-linux-x86-64.so.2 plus
+    # a default set of common libraries (libstdc++, zlib, openssl, ...).
+    programs.nix-ld.enable = true;
   };
 
   flake.modules.homeManager.coding = { config, lib, pkgs, ... }: {
