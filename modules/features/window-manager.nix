@@ -206,7 +206,7 @@ in
             # === Applications ===
             "Mod+Return" = titled "Open Ghostty" { spawn = "ghostty"; };
             "Mod+T" = titled "Open Ghostty" { spawn = "ghostty"; };
-            "Mod+Space" = titled "Application Launcher" (dms [ "spotlight" "toggle" ]);
+            "Mod+Space" = titled "Application Launcher" (noRepeat { spawn = [ "vicinae" "toggle" ]; });
             "Mod+V" = titled "Clipboard Manager" (dms [ "clipboard" "toggle" ]);
             "Mod+M" = titled "Media" (dms [ "dash" "toggle" "media" ]);
             "Mod+X" = titled "Power Menu" (dms [ "powermenu" "toggle" ]);

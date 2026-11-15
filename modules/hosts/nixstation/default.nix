@@ -29,6 +29,7 @@ in
           hm.ai
           hm.browser
           hm.gxuvain
+          hm.launcher
           hm.cli-tooling
           hm.coding
           hm.security
