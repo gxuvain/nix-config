@@ -37,6 +37,15 @@ in
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
+    # Dual boot: Windows lives on another disk (sdb) with its own ESP, so
+    # systemd-boot can't detect it. The EDK2 shell entry is used to find its
+    # device handle (`map -c`), then Windows gets its own menu entry.
+    boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
+    # boot.loader.systemd-boot.windows."11".efiDeviceHandle = "HD?b"; # TODO: set from `map -c`
+
+    # Windows keeps the hardware clock in local time; match it to avoid clock drift on switch.
+    time.hardwareClockInLocalTime = true;
+
     networking.hostName = "nixstation";
     networking.networkmanager.enable = true;
 
