@@ -32,6 +32,7 @@ in
           hm.coding
           hm.security
           hm.sound
+          hm.theme
           hm.terminal
           hm.window-manager
         ];
