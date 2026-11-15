@@ -1,7 +1,15 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
+let
+  username = config.flake.username;
+in
 {
   flake.modules.darwin.coding = {
     homebrew.casks = [ "docker-desktop" ];
+  };
+
+  flake.modules.nixos.coding = {
+    virtualisation.docker.enable = true;
+    users.users.${username}.extraGroups = [ "docker" ];
   };
 
   flake.modules.homeManager.coding = { config, lib, pkgs, ... }: {
@@ -31,9 +39,11 @@
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         gpg.format = "ssh";
-        gpg.ssh.program = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (
-          "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-        );
+        gpg.ssh.program =
+          if pkgs.stdenv.hostPlatform.isDarwin then
+            "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+          else
+            "/run/current-system/sw/bin/op-ssh-sign";
         commit.gpgsign = true;
       };
     };

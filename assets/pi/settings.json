@@ -7,10 +7,11 @@
   "defaultModel": "gpt-6-sol",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-add-dir"
+    "npm:pi-add-dir",
+    "git:github.com/dmmulroy/pi-claude-cli"
   ],
   "enableInstallTelemetry": false,
-  "lastChangelogVersion": "1.5.0",
+  "lastChangelogVersion": "1.5.2",
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0"
   }
