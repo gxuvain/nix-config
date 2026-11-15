@@ -63,6 +63,10 @@ in
 
     programs.mise = {
       enable = true;
+      # Use precompiled binaries instead of building from source (the NixOS
+      # default until mise 2027.8). On NixOS they run through nix-ld.
+      # https://mise.jdx.dev/installing-mise.html#nix
+      globalConfig.settings.all_compile = false;
       globalConfig.tools = {
         bun = "latest";
         node = "latest";
