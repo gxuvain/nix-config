@@ -31,6 +31,7 @@ in
           hm.cli-tooling
           hm.coding
           hm.security
+          hm.sound
           hm.terminal
           hm.window-manager
         ];
