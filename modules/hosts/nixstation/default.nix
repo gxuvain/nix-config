@@ -32,6 +32,7 @@ in
           hm.launcher
           hm.cli-tooling
           hm.coding
+          hm.desktop-shell
           hm.security
           hm.sound
           hm.theme

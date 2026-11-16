@@ -11,7 +11,13 @@
           enable = true;
           autoStart = true;
         };
-        settings.font.normal.family = "GeistMono Nerd Font";
+        settings = {
+          font.normal.family = "GeistMono Nerd Font";
+          theme = {
+            dark.name = "catppuccin-mocha";
+            light.name = "catppuccin-mocha";
+          };
+        };
       };
     };
 }

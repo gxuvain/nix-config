@@ -10,11 +10,6 @@ in
   flake.modules.nixos.window-manager = { pkgs, ... }: {
     programs.niri.enable = true;
 
-    programs.dux-shell = {
-      enable = true;
-      systemd.enable = true;
-    };
-
     services.displayManager.dux-greeter = {
       enable = true;
       compositor.name = "niri";
@@ -308,12 +303,21 @@ in
       gtk = {
         enable = true;
         colorScheme = "dark";
+        font = {
+          name = "GeistMono Nerd Font";
+          size = 11;
+        };
         iconTheme = {
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
         };
       };
 
-      dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      dconf.settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        font-name = "GeistMono Nerd Font 11";
+        document-font-name = "GeistMono Nerd Font 11";
+        monospace-font-name = "GeistMono Nerd Font 11";
+      };
     };
 }
