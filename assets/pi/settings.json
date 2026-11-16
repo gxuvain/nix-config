@@ -3,8 +3,8 @@
   "extensions": [
     "-builtin:mcp"
   ],
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-sol",
+  "defaultProvider": "pi-claude-cli",
+  "defaultModel": "claude-opus-5-5",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-add-dir",
@@ -13,6 +13,6 @@
   "enableInstallTelemetry": false,
   "lastChangelogVersion": "1.5.2",
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0"
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0"
   }
 }
