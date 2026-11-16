@@ -4,7 +4,6 @@
     homebrew.casks = [ "anomalyco/tap/hex" "claude" "opencode-desktop" "t3-code" ];
   };
 
-  # Claude desktop and Hex have no Linux builds.
   flake.modules.nixos.ai = { lib, pkgs, ... }: {
     nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
     environment.systemPackages = with pkgs; [ opencode-desktop t3code ];

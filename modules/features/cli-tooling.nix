@@ -14,10 +14,9 @@
       ripgrep
       unzip
     ]
-    # Linux only: macOS already has `cc` (Xcode CLT clang), and bubblewrap is Linux-only.
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-      bubblewrap # bwrap
-      gcc # cc
+      bubblewrap
+      gcc
     ];
 
     programs.fzf.enable = true;

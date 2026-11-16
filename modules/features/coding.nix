@@ -11,9 +11,6 @@ in
     virtualisation.docker.enable = true;
     users.users.${username}.extraGroups = [ "docker" ];
 
-    # Run generic (non-Nix) Linux binaries, e.g. the prebuilt tools mise downloads
-    # (node, bun, uv, python, rustup). Provides /lib64/ld-linux-x86-64.so.2 plus
-    # a default set of common libraries (libstdc++, zlib, openssl, ...).
     programs.nix-ld.enable = true;
   };
 
@@ -63,9 +60,6 @@ in
 
     programs.mise = {
       enable = true;
-      # Use precompiled binaries instead of building from source (the NixOS
-      # default until mise 2027.8). On NixOS they run through nix-ld.
-      # https://mise.jdx.dev/installing-mise.html#nix
       globalConfig.settings.all_compile = false;
       globalConfig.tools = {
         bun = "latest";

@@ -24,15 +24,11 @@
 
   flake.modules.homeManager.theme = { config, lib, pkgs, ... }:
     lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-      # assets/wallpapers -> ~/.local/share/wallpapers (also browsable from DMS, Mod+Y).
       xdg.dataFile."wallpapers" = {
         source = ../../assets/wallpapers;
         recursive = true;
       };
 
-      # DMS session state, generated from Nix (like the DMS flake's
-      # `programs.dank-material-shell.session`). Note: this makes the file
-      # read-only, so session changes made from the DMS GUI aren't saved.
       xdg.stateFile."dms/session.json".text = builtins.toJSON {
         wallpaperPath = "${config.xdg.dataHome}/wallpapers/wallpaper.png";
       };

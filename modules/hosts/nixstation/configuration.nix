@@ -7,7 +7,6 @@ in
     nixpkgs.hostPlatform = "x86_64-linux";
     nixpkgs.config.allowUnfree = true;
 
-    # NVIDIA RTX 3060 Ti (Ampere): proprietary driver with the open kernel modules.
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.graphics.enable = true;
     hardware.nvidia = {
@@ -16,8 +15,6 @@ in
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
-    # Niri on NVIDIA: stop the driver from keeping a huge VRAM buffer pool.
-    # https://niri-wm.github.io/niri/Nvidia.html
     environment.etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text =
       builtins.toJSON {
         rules = [
@@ -34,15 +31,12 @@ in
         ];
       };
 
-    # Limine, with a dual boot entry for Windows.
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.limine = {
       enable = true;
       efiSupport = true;
       maxGenerations = 10;
 
-      # Windows lives on another disk (sdb) with its own ESP. Chainload its
-      # bootloader via the partition GUID of that ESP (see `lsblk -o NAME,PARTUUID`).
       extraEntries = ''
         /Windows
             protocol: efi
@@ -50,7 +44,6 @@ in
       '';
     };
 
-    # Windows keeps the hardware clock in local time; match it to avoid clock drift on switch.
     time.hardwareClockInLocalTime = true;
 
     networking.hostName = "nixstation";
@@ -84,7 +77,6 @@ in
       extraGroups = [ "wheel" "networkmanager" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
-        # "MacBook Air SSH Key" (stored in 1Password)
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIKMUBSk7di22dPU7Jv6Kh3wBS6KhWZR5olZ9aYOkTeh"
       ];
     };
@@ -97,12 +89,10 @@ in
       settings.PermitRootLogin = "no";
     };
 
-    # TODO: remove once the machine is fully set up.
     security.sudo.wheelNeedsPassword = false;
 
     environment.systemPackages = [ pkgs.git ];
 
-    # Must match the version NixOS was installed with (see generated /etc/nixos/configuration.nix).
     system.stateVersion = "26.05";
   };
 }

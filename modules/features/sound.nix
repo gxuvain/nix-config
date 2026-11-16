@@ -12,8 +12,6 @@
     environment.systemPackages = [ pkgs.pwvucontrol ];
   };
 
-  # EasyEffects: system-wide EQ/effects on top of PipeWire (IEM tuning).
-  # Runs in the background, started with the graphical session.
   flake.modules.homeManager.sound = { lib, pkgs, ... }:
     lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       services.easyeffects.enable = true;
