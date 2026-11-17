@@ -36,6 +36,28 @@ in
       enable = true;
       efiSupport = true;
       maxGenerations = 10;
+      panicOnChecksumMismatch = false;
+
+      style = {
+        wallpapers = [ ];
+        backdrop = "1e1e2e";
+
+        interface = {
+          branding = "NixOS Bootloader";
+          brandingColor = "cba6f7";
+          helpColor = "cba6f7";
+          helpColorBright = "cba6f7";
+        };
+
+        graphicalTerminal = {
+          background = "1e1e2e";
+          brightBackground = "313244";
+          foreground = "cdd6f4";
+          brightForeground = "cdd6f4";
+          palette = "11111b;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;bac2de";
+          brightPalette = "45475a;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+        };
+      };
 
       extraEntries = ''
         /Windows
