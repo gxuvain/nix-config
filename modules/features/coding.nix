@@ -19,7 +19,6 @@ in
       devenv
       gh
       just
-      lazygit
       neovim-unwrapped
       qemu
       tree-sitter
@@ -29,6 +28,16 @@ in
     programs.git = {
       enable = true;
       ignores = [ ".DS_Store" ];
+      includes = [
+        {
+          path = "${pkgs.fetchFromGitHub {
+            owner = "catppuccin";
+            repo = "delta";
+            rev = "011516f5d14f66b771b3e716f29c77231e008c74";
+            hash = "sha256-lztkxX9O41YossvRzpR7tqxMhDNT1Efy2JvkCwtsiXQ=";
+          }}/catppuccin.gitconfig";
+        }
+      ];
       settings = {
         user = {
           name = "Gauvain Palanga";
@@ -36,6 +45,15 @@ in
           signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO12IdgkNVV7DKPzi0t/rddp+ZKCLPA84nUzZzP0JFE4";
         };
         core.editor = "nvim";
+        core.pager = "hunk pager";
+        interactive.diffFilter = "delta --color-only";
+        diff.tool = "hunk";
+        difftool.hunk.cmd = ''hunk difftool "$LOCAL" "$REMOTE" "$MERGED"'';
+        difftool.prompt = false;
+        delta = {
+          features = "catppuccin-mocha";
+          line-numbers = true;
+        };
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         gpg.format = "ssh";
@@ -46,6 +64,20 @@ in
             "/run/current-system/sw/bin/op-ssh-sign";
         commit.gpgsign = true;
       };
+    };
+
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = false;
+    };
+
+    programs.lazygit = {
+      enable = true;
+      settings.git.diffRenderers = [
+        {
+          command = "delta --paging=never {{if gt .width 160}}--side-by-side{{end}}";
+        }
+      ];
     };
 
     xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink (
