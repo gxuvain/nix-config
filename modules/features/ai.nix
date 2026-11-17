@@ -19,5 +19,7 @@
 
       home.file.".pi/agent/settings.json".source =
         mkOutOfStoreSymlink "${assets}/pi/settings.json";
+      home.file.".pi/agent/themes/catppuccin-mocha.json".source =
+        mkOutOfStoreSymlink "${assets}/pi/themes/catppuccin-mocha.json";
     };
 }

@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ config, ... }:
 let
   username = config.flake.username;
 in
@@ -18,14 +18,12 @@ in
     home.packages = with pkgs; [
       devenv
       gh
-      helix
       just
       lazygit
+      neovim-unwrapped
       qemu
       tree-sitter
       wrangler
-    ] ++ [
-      inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     programs.git = {
@@ -37,7 +35,7 @@ in
           email = "gauvainpalanga@gmail.com";
           signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO12IdgkNVV7DKPzi0t/rddp+ZKCLPA84nUzZzP0JFE4";
         };
-        core.editor = "hx";
+        core.editor = "nvim";
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         gpg.format = "ssh";

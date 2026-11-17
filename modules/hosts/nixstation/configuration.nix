@@ -89,8 +89,6 @@ in
       settings.PermitRootLogin = "no";
     };
 
-    security.sudo.wheelNeedsPassword = false;
-
     environment.systemPackages = [ pkgs.git ];
 
     system.stateVersion = "26.05";

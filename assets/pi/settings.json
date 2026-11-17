@@ -1,5 +1,5 @@
 {
-  "theme": "dark/dark",
+  "theme": "catppuccin-mocha",
   "extensions": [
     "-builtin:mcp"
   ],

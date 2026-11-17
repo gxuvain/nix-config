@@ -4,6 +4,6 @@
   };
 
   flake.modules.nixos.communication = { pkgs, ... }: {
-    environment.systemPackages = [ pkgs.discord ];
+    environment.systemPackages = [ pkgs.vesktop ];
   };
 }

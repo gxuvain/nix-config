@@ -9,6 +9,7 @@
       fastfetch
       fd
       gnumake
+      hunk
       imagemagick
       jq
       ripgrep
@@ -21,5 +22,10 @@
 
     programs.fzf.enable = true;
     programs.zoxide.enable = true;
+
+    xdg.configFile."hunk/config.toml".text = ''
+      theme = "catppuccin-mocha"
+      agent_notes = true
+    '';
   };
 }
