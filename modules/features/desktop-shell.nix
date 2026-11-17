@@ -135,6 +135,9 @@
           dmsWindowsFloatingSeeded = [ "niri" ];
           frameEnabled = true;
           matugenSpec = "2021";
+
+          weatherEnabled = true;
+          useAutoLocation = true;
         };
       };
     };

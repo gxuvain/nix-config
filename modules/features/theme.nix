@@ -32,6 +32,7 @@
 
       xdg.stateFile."dms/session.json".text = builtins.toJSON {
         wallpaperPath = "${config.xdg.dataHome}/wallpapers/wallpaper.png";
+        nightModeUseIPLocation = true;
       };
     };
 }
