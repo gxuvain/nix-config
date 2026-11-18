@@ -1,6 +1,7 @@
 require("plugins.blink")
 require("plugins.colorscheme")
 require("plugins.conform")
+require("plugins.gitsigns")
 require("plugins.grug-far")
 require("plugins.lsp")
 require("plugins.nvim-web-icons")
