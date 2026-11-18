@@ -6,13 +6,12 @@
 
   flake.modules.homeManager.terminal = { config, pkgs, ... }: {
     home.packages = [
-      pkgs.tmux
       inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
-    xdg.configFile."tmux/tmux.conf".text = builtins.readFile ../../assets/tmux.conf + ''
-      run-shell "${pkgs.tmuxPlugins.catppuccin.rtp}"
-    '';
+    xdg.configFile."herdr/config.toml".source = config.lib.file.mkOutOfStoreSymlink (
+      "${config.home.homeDirectory}/Dev/nix-config/assets/herdr/config.toml"
+    );
 
     programs.ghostty = {
       enable = true;
