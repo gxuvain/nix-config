@@ -1,8 +1,6 @@
 {
   "theme": "catppuccin-mocha",
-  "extensions": [
-    "-builtin:mcp"
-  ],
+  "defaultTools": ["+codemode"],
   "defaultProvider": "pi-claude-cli",
   "defaultModel": "claude-opus-5-5",
   "packages": [
