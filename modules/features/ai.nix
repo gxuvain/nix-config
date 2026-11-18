@@ -21,5 +21,9 @@
         mkOutOfStoreSymlink "${assets}/pi/settings.json";
       home.file.".pi/agent/themes/catppuccin-mocha.json".source =
         mkOutOfStoreSymlink "${assets}/pi/themes/catppuccin-mocha.json";
+
+      home.file.".agents/skills".source = mkOutOfStoreSymlink "${assets}/skills";
+      xdg.stateFile."skills/.skill-lock.json".source =
+        mkOutOfStoreSymlink "${assets}/skills-lock.json";
     };
 }
