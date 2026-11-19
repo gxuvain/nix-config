@@ -18,6 +18,7 @@
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       bubblewrap
       gcc
+      wl-clipboard
     ];
 
     programs.fzf.enable = true;

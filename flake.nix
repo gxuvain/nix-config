@@ -32,11 +32,17 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.home-manager.follows = "home-manager";
 
+    helium.url = "github:oxcl/nix-flake-helium-browser";
+    helium.inputs.nixpkgs.follows = "nixpkgs";
+
     herdr.url = "github:herdrdev/herdr";
     herdr.inputs.nixpkgs.follows = "nixpkgs";
 
     dms.url = "github:AvengeMedia/DankMaterialShell/stable";
     dms.inputs.nixpkgs.follows = "nixpkgs";
+
+    claude-code.url = "github:sadjow/claude-code-nix";
+    claude-code.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

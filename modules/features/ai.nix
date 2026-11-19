@@ -1,11 +1,10 @@
+{ inputs, ... }:
 {
-  flake.modules.darwin.ai = { lib, ... }: {
-    nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
+  flake.modules.darwin.ai = {
     homebrew.casks = [ "anomalyco/tap/hex" "claude" "opencode-desktop" "t3-code" ];
   };
 
-  flake.modules.nixos.ai = { lib, pkgs, ... }: {
-    nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
+  flake.modules.nixos.ai = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [ opencode-desktop t3code ];
   };
 
@@ -15,7 +14,13 @@
       inherit (config.lib.file) mkOutOfStoreSymlink;
     in
     {
-      home.packages = with pkgs; [ claude-code opencode pi-coding-agent ];
+      # claude-code from sadjow/claude-code-nix (tracks releases hourly).
+      # Update with: nix flake update claude-code
+      home.packages = with pkgs; [
+        inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
+        opencode
+        pi-coding-agent
+      ];
 
       home.file.".pi/agent/settings.json".source =
         mkOutOfStoreSymlink "${assets}/pi/settings.json";
