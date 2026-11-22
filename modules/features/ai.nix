@@ -1,11 +1,11 @@
 { inputs, ... }:
 {
   flake.modules.darwin.ai = {
-    homebrew.casks = [ "anomalyco/tap/hex" "claude" "opencode-desktop" "t3-code" ];
+    homebrew.casks = [ "anomalyco/tap/hex" "claude" "t3-code" ];
   };
 
   flake.modules.nixos.ai = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [ opencode-desktop t3code ];
+    environment.systemPackages = with pkgs; [ t3code ];
   };
 
   flake.modules.homeManager.ai = { config, pkgs, ... }:

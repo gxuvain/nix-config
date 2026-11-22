@@ -19,6 +19,7 @@ in
       darwin.macbookConfiguration
       darwin.music
       darwin.nix
+      darwin.screenshot
       darwin.security
       darwin.terminal
       darwin.theme
