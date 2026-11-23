@@ -28,11 +28,26 @@ require("snacks").setup({
       },
     },
   },
+  dashboard = {
+    enabled = true,
+    preset = {
+      header = "Neovim :: by gxuvain",
+      keys = {},
+    },
+    sections = {
+      { section = "header" },
+    },
+  },
   styles = {
     snacks_image = {
       relative = "editor",
       row = 0,
       col = -1,
+    },
+    dashboard = {
+      wo = {
+        fillchars = "eob: ",
+      },
     },
   },
   image = {
