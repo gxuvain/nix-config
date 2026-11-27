@@ -1,6 +1,8 @@
 {
   "theme": "catppuccin-mocha",
-  "defaultTools": ["+codemode"],
+  "defaultTools": [
+    "+codemode"
+  ],
   "defaultProvider": "pi-claude-cli",
   "defaultModel": "claude-opus-5-5",
   "packages": [
@@ -9,7 +11,7 @@
     "git:github.com/dmmulroy/pi-claude-cli"
   ],
   "enableInstallTelemetry": false,
-  "lastChangelogVersion": "1.5.2",
+  "lastChangelogVersion": "1.6.0",
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0"
   }
