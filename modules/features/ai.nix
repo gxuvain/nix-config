@@ -1,12 +1,10 @@
 { inputs, ... }:
 {
   flake.modules.darwin.ai = {
-    homebrew.casks = [ "anomalyco/tap/hex" "claude" "t3-code" ];
+    homebrew.casks = [ "anomalyco/tap/hex" "claude" ];
   };
 
-  flake.modules.nixos.ai = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [ t3code ];
-  };
+  flake.modules.nixos.ai = { };
 
   flake.modules.homeManager.ai = { config, pkgs, ... }:
     let
@@ -18,7 +16,6 @@
       # Update with: nix flake update claude-code
       home.packages = with pkgs; [
         inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
-        opencode
         pi-coding-agent
       ];
 
