@@ -12,8 +12,8 @@
         };
 
         settings = {
-          fontFamily = "GeistMono Nerd Font";
-          monoFontFamily = "GeistMono Nerd Font";
+          fontFamily = "FantasqueSansM Nerd Font";
+          monoFontFamily = "FantasqueSansM Nerd Font";
 
           barConfigs = [
             {

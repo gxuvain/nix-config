@@ -1,26 +1,21 @@
 {
   flake.modules.darwin.theme = {
     homebrew.casks = [
-      "font-geist-mono-nerd-font"
-      "font-departure-mono-nerd-font"
-      "font-iosevka-term-nerd-font"
+      "font-fantasque-sans-mono-nerd-font"
     ];
   };
 
   flake.modules.nixos.theme = { pkgs, ... }: {
     fonts.packages = with pkgs; [
-      nerd-fonts.geist-mono
-      nerd-fonts.departure-mono
-      nerd-fonts.iosevka-term
-      inter
+      nerd-fonts.fantasque-sans-mono
       noto-fonts
       noto-fonts-color-emoji
     ];
 
     fonts.fontconfig.defaultFonts = {
-      monospace = [ "GeistMono Nerd Font" ];
-      sansSerif = [ "GeistMono Nerd Font" ];
-      serif = [ "GeistMono Nerd Font" ];
+      monospace = [ "FantasqueSansM Nerd Font" ];
+      sansSerif = [ "FantasqueSansM Nerd Font" ];
+      serif = [ "FantasqueSansM Nerd Font" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };

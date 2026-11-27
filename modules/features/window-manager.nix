@@ -304,7 +304,7 @@ in
         enable = true;
         colorScheme = "dark";
         font = {
-          name = "GeistMono Nerd Font";
+          name = "FantasqueSansM Nerd Font";
           size = 11;
         };
         iconTheme = {
@@ -315,9 +315,9 @@ in
 
       dconf.settings."org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        font-name = "GeistMono Nerd Font 11";
-        document-font-name = "GeistMono Nerd Font 11";
-        monospace-font-name = "GeistMono Nerd Font 11";
+        font-name = "FantasqueSansM Nerd Font 11";
+        document-font-name = "FantasqueSansM Nerd Font 11";
+        monospace-font-name = "FantasqueSansM Nerd Font 11";
       };
     };
 }

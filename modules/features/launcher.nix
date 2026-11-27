@@ -12,7 +12,7 @@
           autoStart = true;
         };
         settings = {
-          font.normal.family = "GeistMono Nerd Font";
+          font.normal.family = "FantasqueSansM Nerd Font";
           theme = {
             dark.name = "catppuccin-mocha";
             light.name = "catppuccin-mocha";

@@ -18,7 +18,7 @@
       package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.ghostty else null;
       settings = {
         theme = "Catppuccin Mocha";
-        font-family = "GeistMono Nerd Font";
+        font-family = "FantasqueSansM Nerd Font";
         font-thicken = true;
         font-size = 17;
       };
