@@ -148,7 +148,7 @@ in
             }
             {
               window-rule = {
-                _children = matchAppIds [ "com.mitchellh.ghostty" "zen" ];
+                _children = matchAppIds [ "com.mitchellh.ghostty" ];
                 draw-border-with-background = false;
               };
             }
